@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: "${COMPOSE_NAME}.mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+     - app
+  adminer:
+    image: adminer
+    container_name: "${COMPOSE_NAME}.adminer"
+    ports:
+      - "${ADMINER_PORT}:8080"
+    networks:
+     - app
+  php:
+    build: ./docker/php
+    container_name: "${COMPOSE_NAME}.php"
+    volumes: 
+      - ./app/:/var/www/app:cached
+    networks:
+     - app
+  nginx:
+    build: ./docker/nginx
+    container_name: "${COMPOSE_NAME}.nginx"
+    ports: 
+      - ${NGINX_PORT}:80
+    volumes: 
+      - ./app/:/var/www/app:cached
+    networks:
+     - app
+networks:
+  app:
+    external: true
