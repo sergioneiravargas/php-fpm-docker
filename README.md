@@ -1,5 +1,5 @@
 # PHP-FPM Docker environment
-This environment comes with PHP-FPM 8.1, Nginx, MySQL 5.7 and Adminer containers.
+This environment comes with PHP-FPM 7.4, Nginx, MySQL 5.7 and Adminer containers.
 
 By default, the containers are part of the **app** Docker **network**, it **must be created** before attempting to start the containers.
 
