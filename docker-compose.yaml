@@ -14,9 +14,9 @@ services:
       - "${ADMINER_PORT}:8080"
     networks:
      - app
-  php:
+  app:
     build: ./docker/php
-    container_name: "${COMPOSE_NAME}.php"
+    container_name: "${COMPOSE_NAME}.app"
     volumes: 
       - ./app/:/var/www/app:cached
     networks:
