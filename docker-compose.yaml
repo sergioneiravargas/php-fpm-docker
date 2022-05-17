@@ -15,7 +15,7 @@ services:
     networks:
      - app
   app:
-    build: ./docker/php
+    build: ./docker/app
     container_name: "${COMPOSE_NAME}.app"
     volumes: 
       - ./app/:/var/www/app:cached
