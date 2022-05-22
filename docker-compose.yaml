@@ -5,22 +5,16 @@ services:
     container_name: "${COMPOSE_NAME}.mysql"
     environment:
       - MYSQL_ROOT_PASSWORD=root
-    networks:
-     - app
   adminer:
     image: adminer
     container_name: "${COMPOSE_NAME}.adminer"
     ports:
       - "${ADMINER_PORT}:8080"
-    networks:
-     - app
   app:
     build: ./docker/app
     container_name: "${COMPOSE_NAME}.app"
     volumes: 
       - ./app/:/var/www/app:cached
-    networks:
-     - app
   nginx:
     build: ./docker/nginx
     container_name: "${COMPOSE_NAME}.nginx"
@@ -28,8 +22,3 @@ services:
       - ${NGINX_PORT}:80
     volumes: 
       - ./app/:/var/www/app:cached
-    networks:
-     - app
-networks:
-  app:
-    external: true
