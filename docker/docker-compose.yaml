@@ -11,14 +11,14 @@ services:
     ports:
       - "${ADMINER_PORT}:8080"
   app:
-    build: ./docker/app
+    build: ./app
     container_name: "${COMPOSE_NAME}.app"
     volumes: 
-      - ./app/:/var/www/app:cached
+      - ../app/:/var/www/app:cached
   nginx:
-    build: ./docker/nginx
+    build: ./nginx
     container_name: "${COMPOSE_NAME}.nginx"
     ports: 
       - ${NGINX_PORT}:80
     volumes: 
-      - ./app/:/var/www/app:cached
+      - ../app/:/var/www/app:cached
