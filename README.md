@@ -1,5 +1,5 @@
 # PHP-FPM Docker environment
-This environment comes with PHP-FPM 8.1, Nginx, MySQL 5.7 and Adminer containers.
+This environment comes with PHP-FPM 7.4, Nginx, MySQL 5.7 and Adminer containers.
 
 Custom configuration for PHP and Nginx should be set in the files from **docker/php/** and **docker/nginx/** directories.
 
@@ -7,20 +7,20 @@ Custom configuration for PHP and Nginx should be set in the files from **docker/
 **Docker Compose** is **required**. Choose one of the following two methods to create and start the containers:
 
 ### **Method 1 (inline vars)**
-Change directory to **docker/** and run the following command (replace the variable values first):
+Run the following command (replace the variable values first):
 ```
-COMPOSE_NAME={{ your value }} NGINX_PORT={{ your value }} ADMINER_PORT={{ your value }} docker compose -f docker-compose.yaml up -d
+COMPOSE_NAME={{ your value }} NGINX_PORT={{ your value }} ADMINER_PORT={{ your value }} docker compose -f docker/docker-compose.yaml up -d
 ```
 
 ### **Method 2 (.env file)**
-Create a **.env** file with this template:
+Create a **docker/.env** file with this template:
 ```
 COMPOSE_NAME={{ your value }}
 NGINX_PORT={{ your value }}
 ADMINER_PORT={{ your value }}
 ```
 
-Replace the variable values, change directory to **docker/** and run:
+Replace the variable values and run:
 ```
-sudo docker compose -f docker-compose.yaml --env-file .env up -d
+docker compose -f docker/docker-compose.yaml --env-file docker/.env up -d
 ```
