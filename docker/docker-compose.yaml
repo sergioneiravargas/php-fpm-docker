@@ -13,12 +13,12 @@ services:
   app:
     build: ./app
     container_name: "${COMPOSE_NAME}.app"
-    volumes: 
+    volumes:
       - ../app/:/var/www/app:cached
   nginx:
     build: ./nginx
     container_name: "${COMPOSE_NAME}.nginx"
-    ports: 
+    ports:
       - ${NGINX_PORT}:80
-    volumes: 
+    volumes:
       - ../app/:/var/www/app:cached
