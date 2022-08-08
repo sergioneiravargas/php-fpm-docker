@@ -1,5 +1,5 @@
 # PHP-FPM Docker environment
-This environment comes with PHP-FPM 7.4, Nginx, MySQL 5.7 and Adminer containers.
+This environment comes with PHP-FPM 7.4 and Nginx.
 
 Custom configuration for PHP and Nginx should be set in the files from **docker/php/** and **docker/nginx/** directories.
 
