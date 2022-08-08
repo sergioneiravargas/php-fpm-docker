@@ -1,15 +1,4 @@
-version: "3.9"
 services:
-  mysql:
-    image: mysql:5.7
-    container_name: "${COMPOSE_NAME}.mysql"
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-  adminer:
-    image: adminer
-    container_name: "${COMPOSE_NAME}.adminer"
-    ports:
-      - "${ADMINER_PORT}:8080"
   app:
     build: ./app
     container_name: "${COMPOSE_NAME}.app"
